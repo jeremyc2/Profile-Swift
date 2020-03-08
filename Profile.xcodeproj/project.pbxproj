@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		3F9446242412B47F0073B44D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9446232412B47F0073B44D /* Preview Assets.xcassets */; };
 		3F9446272412B47F0073B44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9446252412B47F0073B44D /* LaunchScreen.storyboard */; };
 		3F94462F2412DB890073B44D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94462E2412DB890073B44D /* MainController.swift */; };
+		3F9446322414D7FB0073B44D /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9446312414D7FB0073B44D /* LBTATools */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9446322414D7FB0073B44D /* LBTATools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = Profile;
+			packageProductDependencies = (
+				3F9446312414D7FB0073B44D /* LBTATools */,
+			);
 			productName = Profile;
 			productReference = 3F9446172412B4770073B44D /* Profile.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 3F94460E2412B4770073B44D;
+			packageReferences = (
+				3F9446302414D7FB0073B44D /* XCRemoteSwiftPackageReference "LBTATools" */,
+			);
 			productRefGroup = 3F9446182412B4770073B44D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -340,6 +348,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F9446302414D7FB0073B44D /* XCRemoteSwiftPackageReference "LBTATools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.17;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F9446312414D7FB0073B44D /* LBTATools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9446302414D7FB0073B44D /* XCRemoteSwiftPackageReference "LBTATools" */;
+			productName = LBTATools;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F94460F2412B4770073B44D /* Project object */;
 }
