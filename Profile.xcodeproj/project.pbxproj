@@ -14,6 +14,7 @@
 		3F9446272412B47F0073B44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F9446252412B47F0073B44D /* LaunchScreen.storyboard */; };
 		3F94462F2412DB890073B44D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94462E2412DB890073B44D /* MainController.swift */; };
 		3F9446322414D7FB0073B44D /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9446312414D7FB0073B44D /* LBTATools */; };
+		3F944634241565420073B44D /* DescriptorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F944633241565420073B44D /* DescriptorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3F9446262412B47F0073B44D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F9446282412B47F0073B44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F94462E2412DB890073B44D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		3F944633241565420073B44D /* DescriptorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				3F94461A2412B4770073B44D /* AppDelegate.swift */,
 				3F94461C2412B4770073B44D /* SceneDelegate.swift */,
 				3F94462E2412DB890073B44D /* MainController.swift */,
+				3F944633241565420073B44D /* DescriptorView.swift */,
 				3F9446202412B47F0073B44D /* Assets.xcassets */,
 				3F9446252412B47F0073B44D /* LaunchScreen.storyboard */,
 				3F9446282412B47F0073B44D /* Info.plist */,
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F94462F2412DB890073B44D /* MainController.swift in Sources */,
+				3F944634241565420073B44D /* DescriptorView.swift in Sources */,
 				3F94461B2412B4770073B44D /* AppDelegate.swift in Sources */,
 				3F94461D2412B4770073B44D /* SceneDelegate.swift in Sources */,
 			);
