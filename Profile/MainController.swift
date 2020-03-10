@@ -10,15 +10,12 @@ import UIKit
 import LBTATools
 
 class MainController: UIViewController {
-    
-    static let themeColor:UIColor = UIColor(red: 70/255.0, green: 107/255.0, blue: 217/255.0, alpha: 1.0)
-    static let themeFont:UIFont = UIFont(name: "KohinoorTelugu-Medium", size: 20)!
         
     var mainLabel:UILabel = {
         var label:UILabel = UILabel()
         
-        label.font = themeFont
-        label.textColor = themeColor
+        label.font = Theme.mainFont
+        label.textColor = Theme.mainColor
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -27,35 +24,39 @@ class MainController: UIViewController {
     var profilePic: UIImageView = {
         let diameter = CGFloat(150)
         
-        var iv:UIImageView = UIImageView(backgroundColor: .red)
-        
+        var iv:UIImageView = UIImageView(image: UIImage(named: "Image"))
+                
         iv.withHeight(diameter)
         iv.withWidth(diameter)
         
         iv.layer.cornerRadius = diameter / 2
         
         iv.layer.borderWidth = 5
-        iv.layer.borderColor = themeColor.cgColor
+        iv.layer.borderColor = Theme.mainColor.cgColor
+        
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
         
                 
         return iv
     }()
     
-    var nameInput:UITextField = {
-        var input: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-        input.translatesAutoresizingMaskIntoConstraints = false
-        input.text = "Micah Smith"
-        input.font = themeFont
-        return input
-    }()
-    
-    var phoneInput:UITextField = UITextField()
-    var emailInput:UITextField = UITextField()
-    var descriptionInput:UITextField = UITextField()
+    var nameInput:DescriptorView = DescriptorView()
+    var phoneInput:DescriptorView = DescriptorView()
+    var emailInput:DescriptorView = DescriptorView()
+    var descriptionInput:DescriptorView = DescriptorView()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Name", text: "Micah Smith")
+     
+        phoneInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Phone", text: "(208) 206-5039")
+        
+        emailInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Email", text: "micahsmith@gmail.com")
+        
+        descriptionInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Tell us about yourself", text: "Hi my name is Mica Smith.")
         
         view.addSubview(mainLabel)
         view.addSubview(profilePic)
@@ -68,13 +69,22 @@ class MainController: UIViewController {
                         
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             
             profilePic.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profilePic.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 30),
 
-            nameInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameInput.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 30)
+            nameInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            nameInput.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 30),
+            
+            phoneInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            phoneInput.topAnchor.constraint(equalTo: nameInput.bottomAnchor, constant: 30),
+            
+            emailInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            emailInput.topAnchor.constraint(equalTo: phoneInput.bottomAnchor, constant: 30),
+            
+            descriptionInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            descriptionInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 30)
         ])
         
     }
