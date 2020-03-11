@@ -18,13 +18,23 @@ class StandardDetailController: UIViewController {
     lazy var titleLabel: UILabel = {
         let lb:UILabel = UILabel(text: titleText, font: Theme.mainFont.withSize(20), textColor: .black, textAlignment: .center, numberOfLines: 1)
         
+        lb.adjustsFontSizeToFitWidth = false
+        
         lb.translatesAutoresizingMaskIntoConstraints = false
         
         return lb
     }()
     
+    lazy var textView:UITextField = {
+        let tf = UITextField(placeholder: placeholderText)
+                        
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tf
+    }()
+    
     lazy var updateButton: UIButton = {
-        var btn:UIButton = UIButton(title: "Update", titleColor: .white, font: Theme.mainFont, backgroundColor: .black, target: nil, action: nil)
+        var btn:UIButton = UIButton(title: "Update", titleColor: .white, font: Theme.mainFont.withSize(15), backgroundColor: .black, target: nil, action: nil)
         
         btn.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,12 +46,20 @@ class StandardDetailController: UIViewController {
         
         
         view.addSubview(titleLabel)
+        view.addSubview(textView)
         view.addSubview(updateButton)
 
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            
+            textView.widthAnchor.constraint(equalToConstant: view.frame.size.width - 170),
+            textView.heightAnchor.constraint(equalToConstant: 75),
+            textView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
  
+            updateButton.widthAnchor.constraint(equalToConstant: view.frame.size.width - 170),
+            updateButton.heightAnchor.constraint(equalToConstant: 50),
             updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             updateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
         ])
