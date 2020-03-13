@@ -11,42 +11,6 @@ import LBTATools
 
 class MainController: UIViewController {
     
-    @objc func nameInputSegue(_ sender: UITapGestureRecognizer? = nil) {
-        
-        print("Name Input Segue")
-        
-        print("Under Construstion")
-        
-    }
-    
-    @objc func phoneInputSegue(_ sender: UITapGestureRecognizer? = nil) {
-        
-        print("Phone Input Segue")
-        
-        let nameInputViewController:StandardDetailController = StandardDetailController(title: "What's your phone number?", label: "Your phone number", text: "(801) 472-8755")
-        
-        self.present(nameInputViewController, animated:true, completion:nil)
-        
-    }
-    
-    @objc func emailInputSegue(_ sender: UITapGestureRecognizer? = nil) {
-        
-        print("Email Input Segue")
-        
-        let nameInputViewController:StandardDetailController = StandardDetailController(title: "What's your email?", label: "Your email address", text: "Timcook@icloud.com")
-        
-        self.present(nameInputViewController, animated:true, completion:nil)
-        
-    }
-    
-    @objc func descriptionInputSegue(_ sender: UITapGestureRecognizer? = nil) {
-        
-        print("Description Input Segue")
-        
-        print("Under Construction")
-        
-    }
-    
     var mainLabel:UILabel = {
         var label:UILabel = UILabel()
         
@@ -82,21 +46,6 @@ class MainController: UIViewController {
     var emailInput:DescriptorView = DescriptorView()
     var descriptionInput:DescriptorView = DescriptorView()
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        let nameInputTap = UITapGestureRecognizer(target: self, action: #selector(nameInputSegue(_:)))
-        let phoneInputTap = UITapGestureRecognizer(target: self, action: #selector(phoneInputSegue(_:)))
-        let emailInputTap = UITapGestureRecognizer(target: self, action: #selector(emailInputSegue(_:)))
-        let descriptionInputTap = UITapGestureRecognizer(target: self, action: #selector(descriptionInputSegue(_:)))
-        
-        nameInput.addGestureRecognizer(nameInputTap)
-        phoneInput.addGestureRecognizer(phoneInputTap)
-        emailInput.addGestureRecognizer(emailInputTap)
-        descriptionInput.addGestureRecognizer(descriptionInputTap)
-
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -120,7 +69,7 @@ class MainController: UIViewController {
         view.addSubview(descriptionInput)
                 
         mainLabel.text = "Edit Profile"
-                        
+                                
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
