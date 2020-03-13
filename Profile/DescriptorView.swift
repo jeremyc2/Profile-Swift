@@ -9,37 +9,58 @@
 import UIKit
 import LBTATools
 
+
+
 class DescriptorView: UIView {
     // We use lazy properties for each view
     lazy var stackView:UIStackView = UIStackView()
+    
+    lazy var arrowGraphic:UIView = {
+        var v:UIView = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let arrow = UIBezierPath()
+        
+        let a:CGPoint = CGPoint(x: 10.0, y: 10.0)
+        let b:CGPoint = CGPoint(x: 20.0, y: 20.0)
+        let c:CGPoint = CGPoint(x: 10.0, y: 30.0)
+        
+        arrow.move(to: a)
+        arrow.addLine(to: b)
+        arrow.addLine(to: c)
+
+        let arrowLayer = CAShapeLayer()
+        arrowLayer.strokeColor = UIColor.gray.cgColor
+        arrowLayer.lineWidth = 2
+        arrowLayer.path = arrow.cgPath
+        arrowLayer.fillColor = UIColor.clear.cgColor
+        arrowLayer.lineJoin = CAShapeLayerLineJoin.round
+        arrowLayer.lineCap = CAShapeLayerLineCap.round
+        
+        v.layer.addSublayer(arrowLayer)
+        
+        return v
+        
+    }()
     
     var height:CGFloat = 0.0
     var width:CGFloat = 0.0
     
     private func buildStackView(label: String, text: String) {
-        stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let innerStackView:UIStackView = UIStackView()
-        innerStackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.axis = .horizontal
 
-        innerStackView.axis = .vertical
-        innerStackView.alignment = .leading
+        stackView.axis = .vertical
+        stackView.alignment = .leading
         
         let UILabel1 = UILabel(text: label, font: Theme.mainFont.withSize(15), textColor: Theme.grayColor, textAlignment: .left, numberOfLines: 1)
         let UILabel2 = UILabel(text: text, font: Theme.mainFont.withSize(15), textColor: .black, textAlignment: .left, numberOfLines: 3)
         
-        innerStackView.addArrangedSubview(UILabel1)
-        innerStackView.addArrangedSubview(UILabel2)
-        
-        let arrowView:UIImageView = UIImageView(backgroundColor: .red).withWidth(50).withHeight(50) as! UIImageView
-        
-        stackView.addArrangedSubview(innerStackView)
-        stackView.addArrangedSubview(arrowView)
-        
-
+        stackView.addArrangedSubview(UILabel1)
+        stackView.addArrangedSubview(UILabel2)
 
     }
     
@@ -76,6 +97,7 @@ class DescriptorView: UIView {
     private func setupView() {
         
         addSubview(stackView)
+        addSubview(arrowGraphic)
         
         addBottomBorder(with: Theme.grayColor, andWidth: 1.0)
 
@@ -85,6 +107,9 @@ class DescriptorView: UIView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
+            
+            arrowGraphic.topAnchor.constraint(equalTo: topAnchor),
+            arrowGraphic.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0)
         ])
     }
 }
