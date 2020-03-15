@@ -28,10 +28,10 @@ class StandardDetailController: UIViewController {
                 
         let arrow = UIBezierPath()
         
-        let a:CGPoint = CGPoint(x: 15.0, y: 0.0)
-        let b:CGPoint = CGPoint(x: 0.0, y: 15.0)
-        let c:CGPoint = CGPoint(x: 15.0, y: 30.0)
-        let d:CGPoint = CGPoint(x: 30.0, y: 15.0)
+        let a:CGPoint = CGPoint(x: 7.5, y: 0.0)
+        let b:CGPoint = CGPoint(x: 0.0, y: 7.5)
+        let c:CGPoint = CGPoint(x: 7.5, y: 15.0)
+        let d:CGPoint = CGPoint(x: 15.0, y: 7.5)
         
         arrow.move(to: a)
         arrow.addLine(to: b)
@@ -41,7 +41,7 @@ class StandardDetailController: UIViewController {
 
         let arrowLayer = CAShapeLayer()
         arrowLayer.strokeColor = UIColor.black.cgColor
-        arrowLayer.lineWidth = 3
+        arrowLayer.lineWidth = 2
         arrowLayer.path = arrow.cgPath
         arrowLayer.fillColor = UIColor.clear.cgColor
         arrowLayer.lineJoin = CAShapeLayerLineJoin.round
@@ -151,8 +151,8 @@ class StandardDetailController: UIViewController {
             updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             updateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
             
-            arrowGraphic.heightAnchor.constraint(equalToConstant: 30.0),
-            arrowGraphic.widthAnchor.constraint(equalToConstant: 30.0),
+            arrowGraphic.heightAnchor.constraint(equalToConstant: 15.0),
+            arrowGraphic.widthAnchor.constraint(equalToConstant: 15.0),
             arrowGraphic.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0),
             arrowGraphic.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0)
         ])

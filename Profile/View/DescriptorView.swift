@@ -104,9 +104,6 @@ class DescriptorView: UIView {
         NSLayoutConstraint.activate([
             stackView.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor),
             stackView.widthAnchor.constraint(equalToConstant: self.width),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
             
             arrowGraphic.topAnchor.constraint(equalTo: topAnchor),
             arrowGraphic.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0)

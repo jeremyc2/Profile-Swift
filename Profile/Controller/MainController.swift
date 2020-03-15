@@ -60,7 +60,7 @@ class MainController: UIViewController {
         emailInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Email", text: "micahsmith@gmail.com")
         
         descriptionInput = DescriptorView(size: CGSize(width: view.frame.size.width - 150, height: 100.0), label: "Tell us about yourself", text: "Hi my name is Mica Smith.")
-        
+                
         view.addSubview(mainLabel)
         view.addSubview(profilePic)
         view.addSubview(nameInput)
@@ -73,21 +73,25 @@ class MainController: UIViewController {
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            
+
             profilePic.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profilePic.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 30),
 
-            nameInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            nameInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameInput.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 30),
-            
-            phoneInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            nameInput.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100),
+
+            phoneInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             phoneInput.topAnchor.constraint(equalTo: nameInput.bottomAnchor, constant: 30),
-            
-            emailInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            phoneInput.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100),
+
+            emailInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailInput.topAnchor.constraint(equalTo: phoneInput.bottomAnchor, constant: 30),
-            
-            descriptionInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            descriptionInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 30)
+            emailInput.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100),
+
+            descriptionInput.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriptionInput.topAnchor.constraint(equalTo: emailInput.bottomAnchor, constant: 30),
+            descriptionInput.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100)
         ])
         
     }
