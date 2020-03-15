@@ -15,17 +15,23 @@ class StandardDetailController: UIViewController {
     var labelText: String = ""
     var inputText: String = ""
     
+    var tapGesture = UITapGestureRecognizer()
+    
+    @objc func dismissByTap(_ sender: UITapGestureRecognizer? = nil) {
+        dismiss(animated: false, completion: nil)
+
+    }
+    
     lazy var arrowGraphic:UIView = {
         var v:UIView = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+                
         let arrow = UIBezierPath()
         
-        let a:CGPoint = CGPoint(x: 20.0, y: 10.0)
-        let b:CGPoint = CGPoint(x: 10.0, y: 20.0)
-        let c:CGPoint = CGPoint(x: 20.0, y: 30.0)
-        let d:CGPoint = CGPoint(x: 30.0, y: 20.0)
+        let a:CGPoint = CGPoint(x: 15.0, y: 0.0)
+        let b:CGPoint = CGPoint(x: 0.0, y: 15.0)
+        let c:CGPoint = CGPoint(x: 15.0, y: 30.0)
+        let d:CGPoint = CGPoint(x: 30.0, y: 15.0)
         
         arrow.move(to: a)
         arrow.addLine(to: b)
@@ -35,13 +41,14 @@ class StandardDetailController: UIViewController {
 
         let arrowLayer = CAShapeLayer()
         arrowLayer.strokeColor = UIColor.black.cgColor
-        arrowLayer.lineWidth = 2
+        arrowLayer.lineWidth = 3
         arrowLayer.path = arrow.cgPath
         arrowLayer.fillColor = UIColor.clear.cgColor
         arrowLayer.lineJoin = CAShapeLayerLineJoin.round
         arrowLayer.lineCap = CAShapeLayerLineCap.round
         
         v.layer.addSublayer(arrowLayer)
+
         
         return v
         
@@ -117,6 +124,12 @@ class StandardDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissByTap(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.numberOfTouchesRequired = 1
+        arrowGraphic.addGestureRecognizer(tapGesture)
+        arrowGraphic.isUserInteractionEnabled = true
+        
         view.backgroundColor = .white
         
         view.addSubview(arrowGraphic)
@@ -126,7 +139,7 @@ class StandardDetailController: UIViewController {
 
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             
             customTextEdit.widthAnchor.constraint(equalToConstant: view.frame.size.width - 170),
             customTextEdit.heightAnchor.constraint(equalToConstant: 55),
@@ -136,7 +149,12 @@ class StandardDetailController: UIViewController {
             updateButton.widthAnchor.constraint(equalToConstant: view.frame.size.width - 170),
             updateButton.heightAnchor.constraint(equalToConstant: 50),
             updateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            updateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
+            updateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            
+            arrowGraphic.heightAnchor.constraint(equalToConstant: 30.0),
+            arrowGraphic.widthAnchor.constraint(equalToConstant: 30.0),
+            arrowGraphic.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0),
+            arrowGraphic.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0)
         ])
         
     }

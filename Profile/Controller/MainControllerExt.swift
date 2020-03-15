@@ -22,9 +22,11 @@ extension MainController {
         
         print("Phone Input Segue")
         
-        let nameInputViewController:StandardDetailController = StandardDetailController(title: "What's your phone number?", label: "Your phone number", text: "(801) 472-8755")
+        let viewController:StandardDetailController = StandardDetailController(title: "What's your phone number?", label: "Your phone number", text: "(801) 472-8755")
         
-        self.present(nameInputViewController, animated:true, completion:nil)
+        viewController.modalPresentationStyle = .fullScreen
+        
+        self.present(viewController, animated:false, completion:nil)
         
     }
     
@@ -32,9 +34,11 @@ extension MainController {
         
         print("Email Input Segue")
         
-        let nameInputViewController:StandardDetailController = StandardDetailController(title: "What's your email?", label: "Your email address", text: "Timcook@icloud.com")
+        let viewController:StandardDetailController = StandardDetailController(title: "What's your email?", label: "Your email address", text: "Timcook@icloud.com")
         
-        self.present(nameInputViewController, animated:true, completion:nil)
+        viewController.modalPresentationStyle = .fullScreen
+        
+        self.present(viewController, animated:false, completion:nil)
         
     }
     
